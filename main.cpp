@@ -1,61 +1,66 @@
+// Переделываем калькулятор в функции 
 #include <iostream>
-// -1 comment
-// test
-// correci
+
+int addition(int a, int b)
+{
+	return a + b;
+}
+
+int subtraction(int a, int b)
+{
+	return a - b;
+}
+
+int multiplication (int a, int b)
+{
+	return a * b;
+}
+
+int division (int a, int b)
+{
+	return a / b;
+}
+
+int exponentiation(int a, int b)
+{
+	int c = 1;
+	for(int i = 0; i < b ; ++i)
+	{
+	c = c * a;
+	}
+	return c;
+}
+
+	void printResult(int a, int b, int c, char operation)
+	{
+		std::cout << a << " " << operation << " " << b << " = " << c << '\n';
+	}
+
 int main ()
 {
+	int a = 5;
+	int b = 0;
+	int c = 0;
 
-	int a;
-	a = 10;
+	c = addition(a, b);
+	printResult(a, b, c, '+');
 
-	int b;
-	b = 3;
+	c = subtraction(a, b);
+	printResult(a, b, c, '-');
 
-	int c;
-	c = a + b;
-	std::cout << a << " + " << b << " = " << c << '\n';
+	c = multiplication (a, b);
+	printResult(a, b, c, '*');
 
-	int d;
-	d = a - b;
-	std::cout << a << " - " << b << " = " << d << '\n';
-
-	int e;
-	e = a * b;
-	std::cout << a << " * " << b << " = " << e << '\n';
-// add div and expo
-	
-	int f;
-	/*
-	 если b не равно 0 
-	 	с = a / b
-	иначе
-		вывести ошибку
-	 */
-	f = a / b;
 	if (b != 0)
 	{
-		f = a / b;
+		c = division(a, b);
+		printResult(a, b, c, '/');
 	}
 	else
 	{
-		std::cout << "Error!\n";
+	std::cout << "Error!" << '\n';
 	}
-	std::cout << a << " / " << b << " = " << f << '\n';
 
-
-	/*for (действие до начала цикла;
-             проверка условия продолжения цикла;
-	     действие после каждой итерации цикла)
-	     {
-	     	тело цикла
-	     }
-	 */
-	int g = 1;
-	for (int i = 0; i < b; ++i)
-	{
-	g = g * a;
-	}
-	std::cout << a << " ^ " << b << " = " << g << '\n';
-
-	
+	c = exponentiation(a, b);
+	printResult(a, b, c, '^');
 }
